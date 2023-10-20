@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:object="${calcu}">
+	<label for="fresultado">Resultado:</label><br>
+	<input type="number"id="fresultado" th:field="*{numA}"><br>	
+	</div>
+</body>
+</html>

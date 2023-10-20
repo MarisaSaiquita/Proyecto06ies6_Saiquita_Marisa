@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<body>
+	<h1> Mi primera CALCULADORA</h1>
+	<div>
+		<form th: object="$ {calcu}" th:action="@ {/calcular"method="post">
+			<label for="fnumero">Numero:</label><br>
+			<input type="number"id="fnumero"th:field="*{numA}"><br>
+			<input type="submit"value="Calcular">
+		</form>
+	</div>
+</body>
+</head>
+</htm>
