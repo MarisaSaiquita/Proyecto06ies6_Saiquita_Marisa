@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.ies.model.Alumno;
+import ar.edu.ies.util.ListadoAlumnos;
 
 @Controller
 public class AlumnoController {
@@ -25,10 +26,14 @@ public class AlumnoController {
 }
 	@PostMapping ("/cargarAlumno")
 	public ModelAndView cargarAlumno (@ModelAttribute("alumno") Alumno alumno) {
-		
-	ModelAndView modelView= new ModelAndView ("listadoAlumos");
-	//modelView.addObject ("alumno", alumno);
+    // TODO guardar alumno en una list
+		ListadoAlumnos.getListado().add(alumno);
+
+		ModelAndView modelView= new ModelAndView ("listadoAlumnos");
+	// TODO enviar el listado a la tabla
+		modelView.addObject ("listado", ListadoAlumnos.getListado());
 	return modelView;
+	
 	
 }
 	

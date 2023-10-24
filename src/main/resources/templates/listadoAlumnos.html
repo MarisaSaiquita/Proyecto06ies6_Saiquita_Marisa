@@ -2,18 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>LISTADO ALUMNOS</title>
+<title>LISTADO de ALUMNOS</title>
 </head>
 <body>
 	<div>
+		<table>
 		<tr>
-			<tr>
-				<tr>
-					
-				</tr>
+			<th> Nombre </th>
+			<th> Apellido </th> 
+			<th> Calle </th> 
+			<th> Numero </th> 
+			<th> Ciudad </th> 
+			<th> Fecha de Nacimiento </th>
+			<th> DNI </th> 
+			<th> Estado Civil </th> 
+			<th> Telefono </th> 
+			<th> Edad </th>  	
 			</tr>
-		</tr>
-	</div>
+		<tr th:each="alum:${listado}">
+			<td th:text="${alum.name}"></td>
+			<td th:text="${alum.lastName}"></td>
+			<td th:text="${alum.addressStreet}"></td>
+			<td th:text="${alum.addressNumber}"></td>
+			<td th:text="${alum.addressCity}"></td>
+			<td th:text="${alum.fechaNacimiento}"></td>
+			<td th:text="${alum.dni}"></td>
+			<td th:text="${alum.estadoCivil}"></td>
+			<td th:text="${alum.telefono}"></td>
+			<td th:text="${alum.getEdad()}"></td>
+		<tr>
+			
+		
+		</table>	
+			</div>
 
 </body>
 </html>

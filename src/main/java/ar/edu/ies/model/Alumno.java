@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Alumno {
 	private String name;
-	private String lastname;
+	private String lastName;
 	private String addressStreet;
 	private Integer addressNumber;
 	private String addressCity;
@@ -38,12 +38,12 @@ public class Alumno {
 		this.name = name;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastname(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getAddressStreet() {

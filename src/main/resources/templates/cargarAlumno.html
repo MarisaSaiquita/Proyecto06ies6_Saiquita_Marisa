@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-</head>
+	<head>	
+		<meta charset="ISO-8859-1">
+		<title>ALUMNOS</title>
+	</head>
 <body>
-  <h1>Carga de ALUMNOS</h1>
-<form th:object="${alumno}"th:action="@{/cargarAlumno} method="post">
-	  <div class="form-group"> 
-		  <label for="name">Nombre</label>
-		  <input type="text" class="form-control" id="name" name="nombre" required>
-      </div> 
-      <div class="form-group"> 
-		  <label for="lastname">Apellido</label>
-		  <input type="text" class="form-control" id="apellido" name="apellido" required>
-      </div>
-      <div class="form-group">
-		   <label for="addressStreet"> Calle </label>
-		   <input type="text" class="form-control" id="calle" name="calle" required>
-      </div>
-      <div class="form-group"> 
-		  <label for="addressNumber"> Numero</label>
-		  <input type="number" class="form-control" id="numeroCasa" name="numeroCasa" required>
-      </div>
-       <div class="form-group"> 
-		   <label for="addressCity"> Ciudad </label>
-		   <input type="text" class="form-control" id="ciudad" name="ciudad" required>
-      </div>
-      <div class="form-group"> 
-		  <label for="fechaNacimiento">Fecha de Nacimiento</label>
-		  <input type="datetime-local" class="form-control" id="fechaNacimiento" name="fechaNacimiento" required>
-    </div>
-      <div class="form-group"> 
-		  <label for="dni">DNI</label>
-		  <input type="text" class="form-control" id="dni" name="dni" required>
-       </div>
-     <div class="form-group"> 
-		 <label for="estadoCivil"> Estado Civil </label>
-		 <input type="text" class="form-control" id="estadoCivil" name="estadoCivl" required>
-      </div>
-      <div class="form-group"> 
-		  <label for="telefono">Telefono </label>
-		  <input type="text" class="form-control" id="telefono" name="telefono" required>
-      </div>
-      <div class="form-group">
-		  <label for="botonCargar">Cargar alumno</label>
-		  <input type="submit" class="btn btn-primary" id="botonCargar" name="botonCargar" value="Cargar alumno">
-		  </div>
-</form>
+<div>
+	<h1> CARGA DE ALUMNOS</h1>
+	<div>
+		<form th: object="$ {alumno}" th:action="@ {/cargarAlumno"method="post">
+			<label for="nombre">Nombre:</label>
+			<input type="text"id="nombre"th:field="*{name}"><br>
+			<label for="apellido">Apellido:</label>
+			<input type="text"id="apellido"th:field="*{lastName}"><br>
+			<label for="direccionCalle">Direccion Calle:</label>
+			<input type="text"id="direccionCalle"th:field="*{addressStreet}"><br>
+			<label for="direccionNumero">Direccion Numero:</label>
+			<input type="number"id="direccionNumero"th:field="*{addressNumber}"><br>
+			<label for="direccionCiudad">Direccion Ciudad:</label>
+			<input type="text"id="direccionCiudad"th:field="*{addressCity}"><br>
+			<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+			<input type="date"id="fechaNacimiento"th:field="*{fechaNacimiento}"><br>
+			<label for="dni">DNI:</label>
+			<input type="text"id="dni"th:field="*{dni}"><br>
+			<label for="estadoCivil">Estado Civil:</label>
+			<input type="text"id="estadoCivil"th:field="*{estadoCivil}"><br>
+			<label for="telefono">Telefono:</label>
+			<input type="text"id="telefono"th:field="*{telefono}"><br>
+			<label for="estado">Estado:</label>
+			<input type="checkbox"id="estado" th:field="*{estado}"><br> 
+			<input type="submit"value="Cargar Alumno">
+		</form>
+	</div>
+	</div>
 </body>
 </html>
