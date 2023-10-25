@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,7 +35,20 @@ public class AlumnoController {
 		modelView.addObject ("listado", ListadoAlumnos.getListado());
 	return modelView;
 	
-	
 }
+	@GetMapping("/alumnos/eliminar/{id}")
+	public String eliminarAlumno(@PathVariable("id") Integer id) {
+	    // Eliminar el Alumno de la base de datos
+
+	    // Redireccionar a la lista de Alumnos
+	    return "redirect:/alumnos";
+	}
+	@PostMapping("/alumnos/actualizar/{id}")
+	public String actualizarAlumno(@PathVariable("id") Integer id, @ModelAttribute Alumno alumno) {
+	    // Actualizar el Alumno en la base de datos
+
+	    // Redireccionar a la lista de Alumnos
+	    return "redirect:/alumnos";
+	}
 	
 }
