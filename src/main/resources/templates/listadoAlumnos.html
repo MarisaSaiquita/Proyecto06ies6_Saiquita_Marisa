@@ -11,35 +11,31 @@
 	<div class="container">
 			<table class="table table-dark table-striped">
 		<tr>
+			<th> DNI </th> 
 			<th> Nombre </th>
 			<th> Apellido </th> 
 			<th> Calle </th> 
 			<th> Numero </th> 
 			<th> Ciudad </th> 
 			<th> Fecha de Nacimiento </th>
-			<th> DNI </th> 
 			<th> Estado Civil </th> 
 			<th> Telefono </th> 
-			<th> Edad </th>  	
+			<th> Edad </th>  
+			<th> Editar </th>	
 			</tr>
-		<tr class="table-danger" th:each="alum:${listado}">
+		<tr class="table-warning" th:each="alum:${listado}">
+			<td th:text="${alum.dni}"></td>
 			<td th:text="${alum.name}"></td>
 			<td th:text="${alum.lastName}"></td>
 			<td th:text="${alum.addressStreet}"></td>
 			<td th:text="${alum.addressNumber}"></td>
 			<td th:text="${alum.addressCity}"></td>
 			<td th:text="${alum.fechaNacimiento}"></td>
-			<td th:text="${alum.dni}"></td>
 			<td th:text="${alum.estadoCivil}"></td>
 			<td th:text="${alum.telefono}"></td>
 			<td th:text="${alum.getEdad()}"></td>
+			<td a type="button" class="btn btn-danger" href="#"{"/eliminarAlumno/"+${alum.dni}}>ELIMINAR</a></td>
 		<tr>
-			<td>
-				<a href="/alumnos/actualizar/${alum.id}" class="btn btn-primary">Actualizar</a>
-				</td>
-				<td>
-					<a href="/alumnos/eliminar/${alum.id}" class="btn btn-danger">Eliminar</a>
-					</td>
 					</tableclass="table table-dark table-striped">	
 			</div>
 </body>

@@ -14,14 +14,14 @@ import ar.edu.ies.util.ListadoAlumnos;
 
 @Controller
 public class AlumnoController {
-	@GetMapping ({"/index","/","/home", "/ alumno"})
+	@GetMapping ({"/index","/","/home","/alumno"})
 	
 	public ModelAndView cargarAlumno () {
 		Alumno alum= new Alumno();
-		alum.setFechaNacimiento(LocalDate.of(2000, 2, 18));
+		alum.setFechaNacimiento(LocalDate.parse ("1986,10,12"));
 		System.out.println("Edad: " + alum.getEdad());
-		ModelAndView modelView= new ModelAndView ("index");
 		
+		ModelAndView modelView= new ModelAndView ("index");
 		modelView.addObject("alumno",alum);
 		return modelView;	
 }
@@ -33,22 +33,23 @@ public class AlumnoController {
 		ModelAndView modelView= new ModelAndView ("listadoAlumnos");
 	// TODO enviar el listado a la tabla
 		modelView.addObject ("listado", ListadoAlumnos.getListado());
-	return modelView;
+		return modelView;
 	
 }
-	@GetMapping("/alumnos/eliminar/{id}")
-	public String eliminarAlumno(@PathVariable("id") Integer id) {
-	    // Eliminar el Alumno de la base de datos
-
-	    // Redireccionar a la lista de Alumnos
-	    return "redirect:/alumnos";
-	}
-	@PostMapping("/alumnos/actualizar/{id}")
-	public String actualizarAlumno(@PathVariable("id") Integer id, @ModelAttribute Alumno alumno) {
-	    // Actualizar el Alumno en la base de datos
-
-	    // Redireccionar a la lista de Alumnos
-	    return "redirect:/alumnos";
+	@GetMapping("/eliminarAlumno/{dni}")
+	public ModelAndView eliminarAlumno(@PathVariable Integer dni) {
+	for (int i=0; i <ListadoAlumnos.getListado().size(); i++) {
+		//if (ListadoAlumnos.getListado().get(i).getDni()==dni);
+		if (ListadoAlumnos.getListado().get(i).getDni().equals(dni));
+		
+		//ListadoAlumnos.getListado().get(i).setEstado(false);
+		ListadoAlumnos.getListado().remove(i);
+		}
+		
+		ModelAndView modelView= new ModelAndView ("listadoAlumnos");
+		modelView.addObject("listado", ListadoAlumnos.getListado());
+		
+		return modelView;		
 	}
 	
 }

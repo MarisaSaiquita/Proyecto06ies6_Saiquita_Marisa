@@ -13,7 +13,7 @@ public class Alumno {
 	private Integer addressNumber;
 	private String addressCity;
 	private LocalDate fechaNacimiento;
-	private String dni;
+	private Integer dni;
 	private String estadoCivil;
 	private String telefono;
 	private Boolean estado;
@@ -78,11 +78,11 @@ public class Alumno {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getDni() {
+	public Integer getDni() {
 		return dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
 
