@@ -1,32 +1,54 @@
 package ar.edu.ies.model;
 
 import java.time.LocalDate;
+
 import java.time.Period;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+@Entity
 @Component
 public class Alumno {
+	@Column
+	//@NotBlank @Size(min=1, max=30)
 	private String name;
-	private String lastName;
+	@Column
+	private String lastName;                   
+	@Column
 	private String addressStreet;
+	@Column
 	private Integer addressNumber;
-	private String addressCity;
+	@Column
+	private String localidad;
+	@Column
 	private LocalDate fechaNacimiento;
-	private Integer dni;
+	@Column
 	private String estadoCivil;
+	@Column
 	private String telefono;
+	//identificador
+	//@GenerateValue (strategy=GenerationType.AUTO)
+	@Id
+	private Integer dni;
+	@Column
 	private Boolean estado;
 	
 	//TODO agregarAtributos
-	
 	public Alumno() {
 		// TODO Auto-generated constructor stub
+
+	}
 	
+	public String getLocalidad() {
+		return localidad;
 	}
 
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
 	}
 
 
@@ -34,9 +56,16 @@ public class Alumno {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 
 	public String getLastName() {
 		return lastName;
@@ -60,14 +89,7 @@ public class Alumno {
 
 	public void setAddressNumber(Integer addressNumber) {
 		this.addressNumber = addressNumber;
-	}
-
-	public String getAddressCity() {
-		return addressCity;
-	}
-
-	public void setAddressCity(String addressCity) {
-		this.addressCity = addressCity;
+	
 	}
 
 	public LocalDate getFechaNacimiento() {
@@ -103,17 +125,21 @@ public class Alumno {
 	
 	}
 
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
 	public Boolean getEstado() {
 		return estado;
 	}
 	public Integer getEdad () {
-	//TODO calculoEdad
 		int edad=0;
-	//LocalDate fechaN= fechaNacimiento.toInstant ().atZone (ZoneId.systemDefault()).toLocalDate();
+	//TODO calculoEdad
 		LocalDate fechaActual = LocalDate.now();
 	Period periodo= Period.between (fechaNacimiento, fechaActual);
 			edad=periodo.getYears();
 	return edad;
 
 }
+
 }
