@@ -19,7 +19,12 @@ public class AlumnoService {
 		alumno.setEstado(true);
 		alumnoRepository.save(alumno);
 	}
- public void eliminarAlumno (Integer dni) {
+ public void eliminarAlumno (Integer dni) throws Exception{
+	 
+	 Alumno auxiliar=new Alumno();
+	 auxiliar= encontrarUnAlumno (dni);
+	 auxiliar.setEstado(false);
+	 alumnoRepository.save(auxiliar);
 	 
  }
  
@@ -27,12 +32,26 @@ public class AlumnoService {
 	 //List<Alumno> listado = new ArrayList<>();
 	 //return listado;
 	 
-	 return (List<Alumno>) alumnoRepository.findAll();
+	 return (List<Alumno>) alumnoRepository.findByEstado(true);
+	 
+ }
+ public void modificarUnAlumno (Alumno alumno) {
+	 
+ }
+ 
+ 
+ public Alumno encontrarUnAlumno (Integer dni) throws Exception {
+	 
+	 return alumnoRepository.findById(dni).orElseThrow(()-> new Exception ("Alumno no encontrado" ));
+	 
+	 
+ }
+	 
 	 
  }
  
 
-}
+
 // todosServicios 	
 
 

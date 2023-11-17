@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+  <meta charset="UTF-8">
+  <title>LISTADO de DOCENTES</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+ </head>
+<body>
+ <div class="container">
+	 <h1>LISTADO DE DOCENTES</h1>
+	 <li>
+	<img src="https://images.theconversation.com/files/502693/original/file-20221228-73923-rcybeu.jpg?ixlib=rb-1.1.0&rect=10%2C5%2C3481%2C2512&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"/>
+	</li>
+	<button type="button" class="btn btn-primary" onclick="window.location.href='/principal'">Volver al Formulario</button>
+	<table class="table table-dark table-striped">
+		<tr>
+			<th> DNI </th> 
+			<th> Nombre </th>
+			<th> Apellido </th> 
+			<th> Calle </th> 
+			<th> Numero </th> 
+			<th> Localidad </th> 
+			<th> Fecha de Nacimiento </th>
+			<th> Estado Civil </th> 
+			<th> Correo </th>
+			<th> Telefono </th> 
+			<th> Edad </th>  
+			<th> Edicion </th>
+			<th> Edicion</th>		
+			</tr>
+		<tr class="table-info" th:each="docente:${listado}">
+			<td th:text="${docente.dni}"></td>
+			<td th:text="${docente.name}"></td>
+			<td th:text="${docente.lastName}"></td>
+			<td th:text="${docente.addressStreet}"></td>
+			<td th:text="${docente.addressNumber}"></td>
+			<td th:text="${docente.localidad}"></td>
+			<td th:text="${docente.fechaNacimiento}"></td>
+			<td th:text="${docente.estadoCivil}"></td>
+			<td th:text="${docente.correo}"></td>
+			<td th:text="${docente.telefono}"></td>
+			<td th:text="${docente.getEdad()}"></td>
+			<td><a type="button" class="btn btn-danger" href="#" th:href="@{'/eliminarDocente/'+${docente.dni}}">ELIMINAR
+				</a>
+			</td>
+			<td><a type="button" class="btn btn-warning" href="#" th:href="@{'/modificarDocente/'+${docente.dni}}">MODIFICAR
+				</a>
+			</td>
+		</tr>
+			</table>	
+			</div>
+</body>
+</html>
