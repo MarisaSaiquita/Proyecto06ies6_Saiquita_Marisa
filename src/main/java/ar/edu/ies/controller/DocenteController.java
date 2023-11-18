@@ -69,6 +69,10 @@ public class DocenteController {
 	ModelAndView modificaDocente= new ModelAndView ("principal");
 	 modificaDocente.addObject("docente", docenteService.encontrarUnDocente(dni));
 	 
+	 modificaDocente.addObject("dni", docente.getDni());
+	    modificaDocente.addObject("dniDisabled", true);
+	    
+	 
 	 return modificaDocente;
 	
 	}

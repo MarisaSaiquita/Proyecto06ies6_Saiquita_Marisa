@@ -3,6 +3,7 @@ package ar.edu.ies.model;
 import java.time.LocalDate;
 import java.time.Period;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -31,6 +32,7 @@ public class Docente {
 			//identificador
 			//@GenerateValue (strategy=GenerationType.AUTO)
 			@Id
+			@DateTimeFormat (pattern="yyyy-MM-dd")
 			private Integer dni;
 			@Column
 			private String correo;

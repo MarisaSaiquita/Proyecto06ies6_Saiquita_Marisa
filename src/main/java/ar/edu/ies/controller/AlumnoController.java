@@ -32,7 +32,7 @@ public class AlumnoController {
 	@GetMapping ({"/alumno"})	
 	public ModelAndView cargarAlumno () {
 		//Alumno alum= new Alumno();
-		alum.setFechaNacimiento(LocalDate.parse ("1986-10-12"));
+		alum.setFechaNacimiento(LocalDate.parse ("1986-03-23"));
 		System.out.println("Edad: " + alum.getEdad());
 		
 		ModelAndView modelView= new ModelAndView ("index");
@@ -78,6 +78,9 @@ public class AlumnoController {
 	
 	ModelAndView modificaAlumno= new ModelAndView ("index");
 	 modificaAlumno.addObject("alumno", alumnoService.encontrarUnAlumno(dni));
+	 
+	 modificaAlumno.addObject("dni", alum.getDni());
+	    modificaAlumno.addObject("dniDisabled", true);
 	 
 	 return modificaAlumno;
 	
