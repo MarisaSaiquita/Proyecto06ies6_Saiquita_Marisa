@@ -15,7 +15,7 @@
 	 <h1>CARGA DE DOCENTES</h1>
 	<form th:object="${docente}" th:action="@{/cargarDocente}"method="post">
 		<label class="form-label"for="dni">DNI:</label>
-		<input class="form-control"type="number"id="dni"th:field="*{dni}"required readonly><br>
+		<input class="form-control"type="number"id="dni"th:field="*{dni}"required><br>
 		<label class="form-label"for="nombre">Nombre:</label>
 		<input class="form-control"type="text"id="nombre"th:field="*{name}"><br>
 		<label class="form-label"for="apellido">Apellido:</label>

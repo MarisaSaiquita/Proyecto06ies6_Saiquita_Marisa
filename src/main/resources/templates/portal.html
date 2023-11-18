@@ -10,7 +10,7 @@
         crossorigin="anonymous">
     <style>
         body {
-  background-color: rgb(128, 128, 255);
+  background-color: rgb(255, 172, 132);
 }
 
 h1 {
@@ -30,24 +30,24 @@ h2 {
 }
 
 img {
-  width: 400px;
-  height: 350px;
+  width: 600px;
+  height: 450px;
   margin: 0 auto;
-  border-radius: 550%;
+  border-radius: 600%;
   border: 2px solid #fff;
 }
 
 .card {
   width: 20rem;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: rgb(255, 255, 149);
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .card-img-top {
   width: 100%;
-  height: 200px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -68,38 +68,49 @@ img {
 </head>
 
 <body>
+	<div class="container">
     <h1>INSTITUTO DE EDUCACIÓN SUPERIOR N°6</h1>
+        <li style="display: flex;">
+        <img src="https://ifdc6m-juj.infd.edu.ar/sitio/wp-content/uploads/2021/09/WhatsApp-Image-2021-09-24-at-20.26.09-1000x563.jpeg"/>
+    </li>
     <br>
     <br>
     <h2>FORMULARIOS</h2>
-    <li style="display: flex;"><img src="https://ifdc6m-juj.infd.edu.ar/sitio/wp-content/uploads/2021/09/WhatsApp-Image-2021-09-24-at-20.26.09-1000x563.jpeg"/>
-            </li>
-            <br>
-            <br>
- <div class="card">
-  <img src="https://img.freepik.com/fotos-premium/ninos-escuela-amistosa-que-estudian-concepto-fondo_488220-11820.jpg" class="card-img-top" alt="Alumno" style="width: 100%; height: auto;">
-  <div class="card-body">
-    <h3 class="card-title"><a href="alumno">FORMULARIO DE ALUMNOS</a></h3>
-    <p class="card-text">Completa el formulario</p>
-   <br>   
-   <button type="button" class="btn btn-warning"style="font-size:30px ;text-align: left;">
-            <a href="mostrarListado">Listado de ALUMNOS</a> </button> </div>        
-        <br>
-        <br>
- </div>
- <br>
- <br>
-   <div class="card">
-  <img src="https://www.fundacionwiese.org/blog/wp-content/uploads/2018/10/cuadro-perfil-del-docente-del-siglo-XXI.jpg" class="card-img-top" alt="Alumno" style="width: 100%; height: auto;">
-  <div class="card-body">
-    <h3 class="card-title"><a href="principal">FORMULARIO DE DOCENTES</a></h3>
-    <p class="card-text">Completa el formulario</p>
-   <br>
-            <button type="button" class="btn btn-danger" style="font-size: 30px;">
-    <a href="mostrarDocentes">Listado de DOCENTES</a>
-</button>
-        </button>
-        <br>
     </div>
+<div style="display: flex;">
+    <div class="card">
+		<br>
+		<br>
+		<br>
+         <img src="https://img.freepik.com/fotos-premium/ninos-escuela-amistosa-que-estudian-concepto-fondo_488220-11820.jpg" class="card-img-top" alt="Alumno" style="width: 100%; height: 100%;">
+         <div class="card-body">
+                <h3 class="card-title"><a href="alumno">FORMULARIO DE ALUMNOS</a></h3>
+             
+                <p class="card-text">Completa el formulario</p>
+                <br>
+                <br>
+                <br>
+                <button type="button" class="btn btn-outline-warning" style="font-size:30px ;text-align: center;">
+                    <a href="mostrarListado">Listado de ALUMNOS</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.fundacionwiese.org/blog/wp-content/uploads/2018/10/cuadro-perfil-del-docente-del-siglo-XXI.jpg" class="card-img-top" alt="Docente" style="width: 100%; height:100%;">
+            <div class="card-body">
+                <h3 class="card-title"><a href="principal">FORMULARIO DE DOCENTES</a></h3>
+                <p class="card-text">Completa el formulario</p>
+                <br>
+                <button type="button" class="btn btn-outline-danger" style="font-size: 30px;">
+                    <a href="mostrarDocentes">Listado de DOCENTES</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
 </body>
 </html>

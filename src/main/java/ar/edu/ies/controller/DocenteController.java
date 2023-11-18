@@ -68,26 +68,22 @@ public class DocenteController {
 	
 	ModelAndView modificaDocente= new ModelAndView ("principal");
 	 modificaDocente.addObject("docente", docenteService.encontrarUnDocente(dni));
-	 
-	 modificaDocente.addObject("dni", docente.getDni());
-	    modificaDocente.addObject("dniDisabled", true);
 	    
 	 
 	 return modificaDocente;
 	
 	}
 
-	@PostMapping ("/modificarDocente")
-	public ModelAndView modificarUnDocente (@ModelAttribute("docente") Docente docente) {
+	//@PostMapping ("/modificarDocente")
+	//public ModelAndView modificarUnDocente (@ModelAttribute("docente") Docente docente) {
    
-		docenteService.guardarDocente(docente);
-		
-		ModelAndView modelView= new ModelAndView ("listadoDocentes");
+		//docenteService.guardarDocente(docente);
+		//ModelAndView modelView= new ModelAndView ("listadoDocentes");
 	
-		modelView.addObject ("listado", docenteService.buscarTodosDocentes());
-		return modelView;
+		//modelView.addObject ("listado", docenteService.buscarTodosDocentes());
+		//return modelView;
 			
-		}
+		
 	@GetMapping("/listadoDocentes/volver")
 	  public ModelAndView volver() {
 	    // Crear el ModelAndView
@@ -95,6 +91,45 @@ public class DocenteController {
 
 	    return modelAndView;
 	  }
-}	
+	@GetMapping("/mostrarDocentes/volver")
+	  public ModelAndView volverPortal() {
+	    // Crear el ModelAndView
+	    ModelAndView modelAndView = new ModelAndView("redirect:/portal");
 
+	    return modelAndView;
+}	
+	@PostMapping("/modificarDocente")
+	public ModelAndView modificarUnDocente(@ModelAttribute("docente") Docente docente) throws Exception {
+	    // Recuperar los datos originales del docente
+	    Docente modificaDocente = docenteService.encontrarUnDocente(docente.getDni());
+	    
+	    // Validar que el DNI no se haya modificado
+	    if (modificaDocente.getDni() != docente.getDni()) {
+	        // Mostrar un mensaje de error
+	        ModelAndView modelAndView = new ModelAndView("error");
+	        modelAndView.addObject("mensaje", "No se puede modificar el DNI");
+	        return modelAndView;
+	        	
+	        }
+	    // Actualizar todos los campos editables excepto el DNI
+	    modificaDocente.setName(docente.getName());
+	    modificaDocente.setLastName(docente.getLastName());
+	    modificaDocente.setAddressStreet(docente.getAddressStreet());
+	    modificaDocente.setAddressNumber(docente.getAddressNumber());
+	    modificaDocente.setLocalidad(docente.getLocalidad());
+	    modificaDocente.setFechaNacimiento(docente.getFechaNacimiento());
+	    modificaDocente.setEstadoCivil(docente.getEstadoCivil());
+	    modificaDocente.setCorreo(docente.getCorreo());
+	    modificaDocente.setTelefono(docente.getTelefono());
+	 // Guardar los datos actualizados del docente
+	    docenteService.guardarDocente(modificaDocente);
+	    
+	 // Redirigir a la página de la lista de docentes
+	    ModelAndView modelView = new ModelAndView("listadoDocentes");
+	    modelView.addObject("listado", docenteService.buscarTodosDocentes());
+	    return modelView;
+	   
+	    }
+	    
+}
 
