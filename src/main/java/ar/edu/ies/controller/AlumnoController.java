@@ -32,7 +32,7 @@ public class AlumnoController {
 	@GetMapping ({"/alumno"})	
 	public ModelAndView cargarAlumno () {
 		//Alumno alum= new Alumno();
-		alum.setFechaNacimiento(LocalDate.of (1986,03,23));
+		alum.setFechaNacimiento(LocalDate.of (2001,12,01));
 		System.out.println("Edad: " + alum.getEdad());
 		
 		ModelAndView modelView= new ModelAndView ("index");
@@ -83,13 +83,16 @@ public class AlumnoController {
 	
 	}
 
-	//@PostMapping ("/modificarAlumno")
-	//public ModelAndView modificarUnAlumno (@ModelAttribute("alumno") Alumno alumno) {
-	//alumnoService.guardarAlumno(alumno);
+	@PostMapping ("/modificarAlumno")
+	public ModelAndView modificarUnAlumno (@ModelAttribute("alumno") Alumno alumno) {
+	alumnoService.guardarAlumno(alumno);
 		
-		//ModelAndView modelView= new ModelAndView ("listadoAlumnos");
-		//modelView.addObject ("listado", alumnoService.buscarTodosAlumnos());
-		//return modelView;
+		ModelAndView modelView= new ModelAndView ("listadoAlumnos");
+		modelView.addObject ("listado", alumnoService.buscarTodosAlumnos());
+		return modelView;
+		
+			
+		}
 
 	@GetMapping("/listadoAlumnos/volver")
 	  public ModelAndView volver() {
@@ -97,37 +100,6 @@ public class AlumnoController {
 	    ModelAndView modelAndView = new ModelAndView("redirect:/index");
 
 	    return modelAndView;
-	  }
-	@PostMapping("/modificarAlumno")
-	public ModelAndView modificarUnAlumno(@ModelAttribute("alumno") Alumno alumno) throws Exception {
-	    // Recuperar los datos originales del alumno
-	    Alumno modificaAlumno = alumnoService.encontrarUnAlumno(alumno.getDni());
-	    
-	    // Validar que el DNI no se haya modificado
-	    if (modificaAlumno.getDni() != alumno.getDni()) {
-	        // Mostrar un mensaje de error
-	        ModelAndView modelView = new ModelAndView("error");
-	        modelView.addObject("mensaje", "No se puede modificar el DNI");
-	        return modelView;
-	    }
-	    
-	    // Actualizar todos los campos editables excepto el DNI
-	    modificaAlumno.setName(alumno.getName());
-	    modificaAlumno.setLastName(alumno.getLastName());
-	    modificaAlumno.setAddressStreet(alumno.getAddressStreet());
-	    modificaAlumno.setAddressNumber(alumno.getAddressNumber());
-	    modificaAlumno.setLocalidad(alumno.getLocalidad());
-	    modificaAlumno.setFechaNacimiento(alumno.getFechaNacimiento());
-	    modificaAlumno.setEstadoCivil(alumno.getEstadoCivil());
-	    modificaAlumno.setTelefono(alumno.getTelefono());
-	 // Guardar los datos actualizados del alumno
-	    alumnoService.guardarAlumno(modificaAlumno);
-	    
-	 // Redirigir a la página de la lista de alumnos
-	    ModelAndView modelView = new ModelAndView("listadoAlumnos");
-	    modelView.addObject("listado", alumnoService.buscarTodosAlumnos());
-	    return modelView;
-	    
 	    
 	    	
 	    }

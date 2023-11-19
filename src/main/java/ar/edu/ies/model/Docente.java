@@ -24,6 +24,7 @@ public class Docente {
 			@Column
 			private String localidad;
 			@Column
+			@DateTimeFormat (pattern="yyyy-MM-dd")
 			private LocalDate fechaNacimiento;
 			@Column
 			private String estadoCivil;
@@ -32,7 +33,6 @@ public class Docente {
 			//identificador
 			//@GenerateValue (strategy=GenerationType.AUTO)
 			@Id
-			@DateTimeFormat (pattern="yyyy-MM-dd")
 			private Integer dni;
 			@Column
 			private String correo;
