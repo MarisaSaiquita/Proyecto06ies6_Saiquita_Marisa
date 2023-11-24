@@ -139,7 +139,6 @@ public class Docente {
 	return edad;
 		
 	}
-	
 
 		
 }

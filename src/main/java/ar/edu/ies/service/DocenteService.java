@@ -12,8 +12,8 @@ import ar.edu.ies.repository.DocenteRepository;
 public class DocenteService {
 	
 	@Autowired
-	DocenteRepository docenteRepository;
-	
+	private DocenteRepository docenteRepository;
+
 	public void guardarDocente (Docente docente) {
 		docente.setEstado(true);
 		docenteRepository.save(docente);
@@ -26,25 +26,31 @@ public void eliminarDocente (Integer dni) throws Exception{
 	 docenteRepository.save(auxiliar);
 	 
 }
+
 public List<Docente> buscarTodosDocentes(){
 	
 	//List <Docente> listado=new ArrayList();
 	//return listado
+
+	return docenteRepository.findByEstado(true);
+	//return (List <Docente>)docenteRepository.findByEstado(true);
+		
+	}
+      public Docente modificarDocente(Integer dni) {
+    Docente docente = docenteRepository.findById(dni).get();
+    return docente;
+		
+}
 	
-	return (List <Docente>)docenteRepository.findByEstado(true);
-	 
-}
-public void modificarUnDocente (Docente docente) {
-	 
-}
+
    public Docente encontrarUnDocente (Integer dni) throws Exception {
 	
 	return docenteRepository.findById(dni).orElseThrow(()-> new Exception ("Docente no encontrado"));
-	 
-}
-		
-	}
 	
+	
+}
+   
+}
 
 //todosServicios 	
 

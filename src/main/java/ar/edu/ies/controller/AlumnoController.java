@@ -82,7 +82,6 @@ public class AlumnoController {
 	 return modificaAlumno;
 	
 	}
-
 	@PostMapping ("/modificarAlumno")
 	public ModelAndView modificarUnAlumno (@ModelAttribute("alumno") Alumno alumno) {
 	alumnoService.guardarAlumno(alumno);
